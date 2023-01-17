@@ -1,0 +1,402 @@
+<html>
+<head>
+    <title>KOERS for Pebble</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />    
+    <meta name="description" content="KOERS allows you to explore new roads with just your Pebble smartwatch. Select rides with minimal effort from your phone and follow the line.">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    
+    <!--[if lt IE 9]>
+      <script src="unsemantic/javascripts/html5.js"></script>
+    <![endif]-->
+    <!--[if (gt IE 8) | (IEMobile)]><!-->
+      <link rel="stylesheet" href="unsemantic/unsemantic-grid-responsive.css" />
+    <!--<![endif]-->
+    <!--[if (lt IE 9) & (!IEMobile)]>
+      <link rel="stylesheet" href="unsemantic/ie.css" />
+    <![endif]-->
+    
+    <style>
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    html {
+        -webkit-text-size-adjust: none;
+    }
+    
+    body {
+        background-color: #eee;
+        font-family: "Helvetica-Light", "Arial", 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Verdana, Tahoma, sans-serif;
+        line-height: 180%;
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-weight: normal;
+        margin: 20px 0;
+        font-size: 28px;
+    }
+    h2 {
+        font-weight: normal;
+        margin: 10px 0;
+        font-size: 20px;
+    }
+    p {
+        font-size: 16px;
+    }
+    
+    img {
+        vertical-align: middle;
+    }
+    
+    h1.important {
+        text-align: center;
+    }
+    
+    a, a:visited {
+        color: #00468D;
+    
+    }
+    
+    h1 a {
+        text-decoration: none;
+    }
+    
+    a.button {
+        border: none;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+        padding: 15px;
+        font-family: "Helvetica-Light", "Arial";
+        font-size: 14px;
+        background-color: #004C9B;
+        color: #fff;
+        text-decoration: none;
+        
+        height: 44px;
+        line-height: 14px;
+        
+        display: inline-block;
+        
+        margin: 5px;
+        width: 183px;
+        position: relative;
+    }
+    
+    a.button.disabled {
+        box-shadow: none;
+        cursor: default;
+
+    }
+    
+    a.button:active {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.25) inset;
+        background-color: #0052A5;
+    }
+    
+    div.page {
+        max-width: 1000px;
+        overflow: hidden;
+        
+        background-color: #fff;
+        margin: 0 auto 0 auto;
+        min-height: 100vh;
+        
+        border-left: 1px solid #dbdbdb;
+        border-right: 1px solid #dbdbdb;
+        box-sizing: content-box;
+        
+    }
+    
+    div.head {
+        position: relative;
+    }
+
+    div.head img {
+        width: 100%;
+    }
+
+    div.grid-container {
+        /*padding: 50px 20px;*/
+    }
+    
+    @media screen and (max-width: 850px) {
+        
+        div.page {
+            border: none;
+        }
+    }
+    
+    
+    div.head div#slides img:not(:first-child) {
+        display: none;
+    }
+    
+    div.steel {
+        position: relative;
+        width: 492px;
+        display: inline-block;
+    }
+    
+    div.steel div.scherm {
+        left: 229px;
+        top: 212px;
+    }
+
+    div.body {
+        padding: 40px 10px 40px 10px;
+    }
+    div.body-full-width {
+        padding: 40px 0 40px 0;
+    }
+    div#video {
+        margin: 20px 0 20px 0;
+    }
+    div.head {
+        margin-bottom: 20px;
+    }
+    
+    @media screen and (min-width: 768px) {
+        div.body {
+            padding: 60px 100px 60px 100px;
+        }
+        div.body-full-width {
+            padding: 60px 0 60px 0;
+        }
+        div#video {
+            margin: 40px 0 40px 0;
+        }
+        div.head {
+            margin-bottom: 40px;
+        }
+        
+        div.text {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        div.text.ampa {
+            height: 280px;
+        }
+
+        div.text.brug {
+            height: 621px;
+        }
+    }
+    
+    div.body:last-child {
+        padding-bottom: 5px;
+    }
+    
+    .twitter-tweet blockquote {
+        border: solid black 1px !important;
+        
+    }
+    
+    </style>
+    
+</head>
+
+<body>
+
+    <div class="page">
+        
+        <div class="head">
+            <div><img src="images/header.jpg" width="1000" alt="Koers" /></div>
+        </div>
+
+        
+        <div class="body">
+            <div class="grid-container">
+
+                <div class="grid-100 mobile-grid-100" style="text-align: center;">
+        
+                    <p style="font-size: 20px;">
+                    KOERS allows you to explore new roads with just your Pebble smartwatch. Select rides with minimal effort from your phone and follow the line.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="video" style="background-color: #F5F5F5; ">
+            
+            <div id="videoSize" style="max-width: 640px; margin-left: auto; margin-right:auto;">
+                <div style="width:100%; height: 360px; overflow: hidden; ">
+                    <iframe style="max-width: 100%; height: 100%;" src="https://player.vimeo.com/video/181693948?title=0&amp;byline=0&amp;portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="body" style="padding-bottom: 50px;">
+            <div class="grid-container">
+                <div class="grid-100 mobile-grid-100">
+
+                    <div class="text">
+
+                        <h2>Simple & fast</h2>
+                        <p>
+                        KOERS distinguishes itself by allowing you to select routes and activities with minimal effort. Whether you are up for a quick ride or want to elaborately plan a new adventure, KOERS helps you to find new roads.
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div class="body-full-width" style="padding-top: 0;">
+            <div class="grid-container">
+                <div class="grid-33 mobile-grid-100" style="text-align: center;">
+                    <img src="images/surpriseButton.png" width="247" />
+                    <p style="font-style: italic; padding: 20px;">
+                        Let yourself be surprised by the most beautiful cycling routes nearby.
+                    </p>
+                </div>
+
+                <div class="grid-33 mobile-grid-100" style="text-align: center;">
+                    <img src="images/fileButton.png" width="247" />
+                    <p style="font-style: italic; padding: 20px;">
+                        Plan your next adventure with your favourite route builder.<br />
+                        <span style="font-size: 14px;">Mine is <a href="https://www.strava.com/routes">Strava Route builder</a></span>
+                    </p>
+                </div>
+
+                <div class="grid-33 mobile-grid-100" style="text-align: center;">
+                    <img src="images/stravaButton.png" width="247" />
+                    <p style="font-style: italic; padding: 20px;">
+                        Use your Strava ride history and friends. Navigate to and along segments.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="body">
+            <div class="grid-container">
+                
+                <div class="grid-100 mobile-grid-100" style="text-align: center; margin-bottom: 20px;">
+                     <h2 style="margin-bottom: 20px;">Power of your phone & simplicity of your Pebble</h2>
+                </div>
+
+                <div class="grid-60 mobile-grid-30" style="text-align: center; padding-bottom: 20px;">
+                    <img src="images/powerPhone.png" width="487" />
+                </div>
+
+                <div class="grid-40 mobile-grid-70" style="text-align: center;">
+                    <img src="images/stylePebble.png" width="247" />
+
+                </div>
+            </div>
+        </div>
+
+        <div class="body">
+            <div class="grid-container">
+                
+                <div class="grid-100 mobile-grid-100" style="text-align: left; margin-bottom: 20px; max-width: 530px; margin: auto;">
+ 
+                    <h2>Features</h2>
+                    <ul style="margin-left: 20px;">
+                        <li><b>Course navigation</b> on Pebble: show current location on your route.</li>
+                        <li>Show distance and direction to route when not on screen.</li> 
+                        <li>Map rotation based on heading (default) or device orientation.</li>
+                        <li>Offline <b>import of GPX</b> and TCX files. <span style="font-size: 12px;">iOS only</span></li>
+                        <li>Search for existing routes nearby you.</li>
+                        <li><b>Connect with Strava</b> to select routes, activities and segments.</li>
+                        <li>Show current speed and time.</li>
+                        <li>Turn backlight always on.</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="body">
+            <div class="grid-container">
+                <div class="grid-50 mobile-grid-100" style="padding-bottom: 20px;">
+
+                    <div class="text ampa">
+
+                        <h2>Proven in practice</h2>
+                        <p>
+                            KOERS has proven itself in practice during countless test rides and under various conditions. <br />
+                            <span style="font-size: 14px;">The longest from Amsterdam to Paris: <a href="https://www.strava.com/activities/621233236">Strava</a>,&nbsp;<a href="https://vimeo.com/174630438">video</a></span>
+
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="grid-50 mobile-grid-100" style="text-align: center;">
+                    <img src="images/ampa.png" width="300" />
+
+                </div>
+            </div>
+        </div>
+
+        <div class="body" style="margin: 0">
+            <div class="grid-container">
+                <div class="grid-40 hide-on-mobile" style="overflow: hidden; text-align: left;">
+                    <img src="images/brug.png" width="212" />
+
+                </div>
+
+                <div class="grid-60 mobile-grid-100" style="text-align: center;">
+
+                    <div class="text brug">
+                        <img src="images/koersIcon.png" width="150" />
+                        <p style="margin-top: 40px;">
+                            KOERS always offers you a fast and simple way to help you find the most beautiful and challenging cycling roads.
+                        </p>
+                        <p>
+                            Start exploring...
+                        </p>
+                        <div style="margin-top: 30px;">
+                            <a href="https://apps.getpebble.com/applications/57caf722f69d1d36610001af"><img src="images/downloadButton.png" width="226" /></a>
+                            <br />
+                            <p style="margin-top: 10px; font-size: 14px; font-style: italic;">
+                                Use KOERS for free during beta
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="body">
+            <div class="grid-container">
+
+                <div class="grid-100 mobile-grid-100" style="text-align: center;">
+
+                    <p>KOERS is a project of</p>
+                    <br />
+                    <div style="display: inline-block;text-align: right;position: relative;top:15px;"><a href="https://twitter.com/tjeerdytsma" style="text-decoration: none; color: #000;font-size: 20px; line-height: 15px;">Tjeerd Ytsma</a><br /><a href="https://twitter.com/tjeerdytsma" style="text-decoration: none; color: #000;font-size: 13px;">@tjeerdytsma</a></div>
+                    &nbsp;&nbsp;
+                    <span style="font-size: 18px; font-style: italic;">&</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="http://hoogendiep.nl"><img src="images/logoHD.jpg" width="58" alt="Hoog+Diep" style="vertical-align:middle;" /></a>
+
+                    <div style="margin-top: 50px; font-size: 14px;">
+                        Inspired by  <a href="https://www.strava.com/routes">Strava Route builder</a> and  <a href="http://blog.veloviewer.com">Veloviewer</a> Explorer score
+                    </div>
+                </div>
+            </div>
+            
+            <div class="body">
+                <div class="grid-100 mobile-grid-100" style="text-align: center; font-size: 10px;">
+                    <br /><br />
+
+                    &copy; 2016 Tjeerd IJtsma
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
