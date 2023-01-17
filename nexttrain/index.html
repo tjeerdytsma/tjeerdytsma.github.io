@@ -1,0 +1,577 @@
+<html>
+<head>
+	<title>Next Train NL voor Pebble</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />	
+	<meta name="description" content="'Next Train NL' is de app om je Nederlandse treinreis te plannen op de Pebble smartwatch. Zo heb je alle informatie over je  reis direct bij de hand.">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	
+	<!--[if lt IE 9]>
+	  <script src="unsemantic/javascripts/html5.js"></script>
+	<![endif]-->
+	<!--[if (gt IE 8) | (IEMobile)]><!-->
+	  <link rel="stylesheet" href="unsemantic/unsemantic-grid-responsive.css" />
+	<!--<![endif]-->
+	<!--[if (lt IE 9) & (!IEMobile)]>
+	  <link rel="stylesheet" href="unsemantic/ie.css" />
+	<![endif]-->
+	
+	<style>
+	
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
+	html {
+		-webkit-text-size-adjust: none;
+	}
+	
+	body {
+		background-color: #eee;
+		font-family: "Helvetica-Light", "Arial", 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Verdana, Tahoma, sans-serif;
+		line-height: 140%;
+		font-size: 16px;
+	}
+	
+	h1 {
+		font-weight: normal;
+		line-height: 100%;
+		margin: 20px 0;
+		font-size: 28px;
+	}
+	h2 {
+		font-weight: normal;
+		line-height: 100%;
+		margin: 10px 0;
+		font-size: 20px;
+	}
+	p {
+		font-size: 16px;
+	}
+	
+	img {
+		vertical-align: middle;
+	}
+	
+	h1.important {
+		text-align: center;
+	}
+	
+	a, a:visited {
+		color: #00468D;
+	
+	}
+	
+	h1 a {
+		text-decoration: none;
+	}
+	
+	a.button {
+		border: none;
+		border-radius: 4px;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+		padding: 15px;
+		font-family: "Helvetica-Light", "Arial";
+		font-size: 14px;
+		background-color: #004C9B;
+		color: #fff;
+		text-decoration: none;
+		
+		height: 44px;
+		line-height: 14px;
+		
+		display: inline-block;
+		
+		margin: 5px;
+		width: 183px;
+		position: relative;
+	}
+	
+	a.button.appstore:before {
+		border-radius: 4px;
+		content: '';
+		display: block;
+		position: absolute;
+		width: 183px;
+		height: 44px;
+		left: 0;
+		top: 0;
+		background-image: url('http://dev.pblweb.com/badge/52cf056321e5796173000081/orange/small');
+		background-position: 0px -3px;
+/* 		text-indent: -9999px; */
+		background-color: #FF471D;	
+	}
+	
+	a.button.disabled {
+		box-shadow: none;
+		cursor: default;
+
+	}
+	
+	a.button:active {
+		box-shadow: 0 1px 3px rgba(0,0,0,0.25) inset;
+		background-color: #0052A5;
+	}
+	
+	a.english {
+		text-indent: -9999px;
+		background-image: url('images/english.png');
+		width: 28px;
+		height: 28px;
+		overflow: hidden;
+		display: block;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		z-index: 100;
+	}
+	
+	div.page {
+		max-width: 850px;
+		overflow: hidden;
+		
+		background-color: #fff;
+		margin: 0 auto 0 auto;
+		min-height: 100vh;
+		
+		border-left: 1px solid #dbdbdb;
+		border-right: 1px solid #dbdbdb;
+		box-sizing: content-box;
+		
+		/* 
+box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.10);
+		-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.10);
+		-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.10);
+ */
+		
+	}
+	
+	div.head {
+		position: relative;
+/* 		width: 850px; */
+	}
+
+	
+/* 
+	div.head div.scherm {
+		display: none;
+	}
+ */
+	
+	@media screen and (max-width: 850px) {
+	
+		div.head div.scherm {
+			display: none;
+		}
+		
+		div.head img {
+			width: 100%;
+		}
+		
+		div.page {
+			border: none;
+		}
+	}
+	
+	div.scherm {
+		width: 58px;
+		height: 43px;
+		
+		position: absolute;
+		left: 694px;
+		top: 150px;
+		
+		background-image: url('images/aftellen-scherm.gif');
+		background-position: -57px -73px;
+		overflow: hidden;
+		
+		z-index: 100;
+	}
+	
+	
+	div.head div#slides img:not(:first-child) {
+		display: none;
+	}
+	
+	a.slidesjs-navigation {
+		display: none;
+	}
+	ul.slidesjs-pagination {
+		text-align: center;
+		position: absolute;
+		width: 100%;
+		top: 285px;
+		z-index: 100;
+	}
+	ul.slidesjs-pagination li {
+		display: inline-block;
+		text-indent: -9999px;
+		
+	}
+	ul.slidesjs-pagination li a {
+		display: block;
+		border: solid #fff 1px;
+		width: 8px;
+		height: 8px;
+		border-radius: 4px;
+		margin: 3px;
+	}
+	ul.slidesjs-pagination li a.active {
+		background-color: #fff;
+	}
+	
+	div.steel {
+		position: relative;
+		width: 492px;
+		display: inline-block;
+	}
+	
+	div.steel div.scherm {
+		left: 229px;
+		top: 212px;
+	}
+
+	div.body {
+		padding: 20px 10px 20px 10px;
+	
+	}
+	
+	div.panel {
+/* 
+		float:left;
+		width: 50%;
+		min-width: 300px;
+		max-width: 375px;
+ */
+	}
+	
+	@media screen and (min-width: 768px) {
+		div.body {
+			padding: 40px 50px 40px 50px;
+		}
+		
+		div.text {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		div.text.screen-home-steel {
+			height: 474px;
+		}
+		div.text.screen-stations {
+			height: 480px;
+		}
+		div.text.screen-menu {
+			height: 420px;
+		}
+	}
+	
+	div.body:last-child {
+		padding-bottom: 5px;
+	}
+	
+	.twitter-tweet blockquote {
+		border: solid black 1px !important;
+		
+	}
+	
+	</style>
+	
+</head>
+
+<body>
+
+	
+	<div class="page">
+	
+		
+		<div class="head">
+			<div><img src="images/nexttrainnl.jpg" alt="Next Train NL" /><div class="scherm"></div></div>
+			<a href="#engels" class="english">English</a>
+		</div>
+
+		
+		<div class="body">		
+		
+			<div class="grid-container">
+
+				<div class="grid-100 mobile-grid-100" style="text-align: center">
+		
+					<p>
+					Met 'Next Train NL' zie je op je Pebble direct de tijd aftellen tot de eerste trein vanaf het dichtstbijzijnde station naar huis. Al thuis? Dan zie je het eerste vertrek naar je tweede veelgebruikte station - bijvoorbeeld je werk.
+					</p>
+
+				</div>
+
+
+
+				<div class="grid-100 mobile-grid-100" style="text-align: center">
+					<div class="steel">
+						<img src="images/home-steel-uitleg.jpg" alt="Functies startscherm" style="<!-- width: 177px; -->" />
+						<div class="scherm"></div>
+					</div>
+				</div>
+
+
+
+				<div class="grid-100 mobile-grid-100" style="text-align: center">
+
+					<p>
+					Met een druk op de knop roep je steeds de volgende vertrektijd op. Per vertrek worden aankomsttijd, perron, aantal overstappen en mogelijke vertraging getoond. 
+					</p>
+					
+					<br />
+					
+					<center>
+						<a href="https://apps.getpebble.com/applications/52cf056321e5796173000081" class="button appstore disabled">On the App Store</a>
+					</center>
+
+
+				</div>
+
+			</div>
+
+		</div>		
+
+		<div id="video" style="background-color: #F5F5F5; ">
+			
+			<div id="videoSize" style="max-width: 568px;margin-left: auto; margin-right:auto;">
+				<div style="width:100%; height:0; padding-bottom:56.25%; overflow: hidden; " >
+					<iframe style="width:100%;height:100%;" src="//player.vimeo.com/video/86176607?title=0&amp;byline=0&amp;portrait=0" width="850" height="478" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				</div>
+			</div>	
+			
+		</div>
+
+		
+		<!-- 
+		<div class="head" style="margin-top: 30px;">
+			<div id="slides">
+				<img src="images/nexttrainnl1.jpg" alt="Next Train NL" />
+				<img src="images/nexttrainnl2.jpg" alt="Next Train NL" />
+				<img src="images/nexttrainnl3.jpg" alt="Next Train NL" />
+			</div>
+		</div>
+		 -->
+		
+		<div class="body">
+
+			<div class="grid-container">
+
+				<div class="grid-50 mobile-grid-100">
+
+					<div class="text screen-stations">
+
+						<h2>Door heel Nederland</h2>
+						<p>
+						Kies snel uit de vijf op dat moment dichtstbijzijnde stations, je overige persoonlijk ingestelde favorieten of een ander station in Nederland.
+						</p>
+
+						<br />
+
+					</div>
+
+				</div>
+
+
+				<div class="grid-50 mobile-grid-100" style="text-align: center">
+					<img src="images/screen-stations.png" alt="Stationsmenu" style="" />
+				</div>
+
+			</div>
+
+	
+	
+			<div class="grid-container">
+
+				
+
+				<div class="grid-50 hide-on-mobile" style="text-align: center">
+					<img src="images/screen-menu.png" alt="Pebble hoofdmenu" style="" />
+				</div>
+
+				<div class="grid-50 mobile-grid-100">
+
+					<div class="text screen-menu">
+
+						<h2>Gratis, direct op je Pebble</h2>
+						<p>
+						'Next Train NL' is een universele <a href="http://getpebble.com">Pebble</a> app die werkt in combinatie met je iPhone of Android telefoon.
+						</p>
+						<p>
+						De app is gratis beschikbaar in de nieuwe Pebble appstore.
+						</p>
+
+
+						
+
+					</div>
+
+				</div>
+				<br />
+			</div>
+	
+
+			<div class="grid-container">
+
+				<br />
+				<h2>Wat zeggen de gebruikers</h2>
+
+				<div class="grid-50 mobile-grid-100" style="text-align: center;">
+					<div class="text" style="display: inline-block;">
+					
+						<blockquote class="twitter-tweet" data-conversation="none" data-cards="hidden" lang="nl" width="100%"><p><a href="https://twitter.com/NextTrainNL">@NextTrainNL</a> <a href="https://twitter.com/tjeerdytsma">@tjeerdytsma</a> Jullie zijn GEWELDIG. Precies de app die ik altijd al wilde voor mijn Pebble. BAM. Gewoon daar! Nu al! OMG!!!</p>&mdash; Tom Klaver (@klavr) <a href="https://twitter.com/klavr/statuses/430479244821803008">February 3, 2014</a></blockquote>
+
+						<!-- <blockquote class="twitter-tweet" data-conversation="none" data-cards="hidden" lang="nl" width="345"><p>Mijn trein niet gehaald, maar <a href="https://twitter.com/NextTrainNL">@NextTrainNL</a> was wel spot-on. De trein vertrok zoals gepland.</p>&mdash; Patrick. (@lolbroeck) <a href="https://twitter.com/lolbroeck/statuses/423837436998066176">January 16, 2014</a></blockquote> -->
+						
+						<blockquote class="twitter-tweet" lang="en"><p>I love the (mini) <a href="https://twitter.com/search?q=%23userexperience&amp;src=hash">#userexperience</a> of the <a href="https://twitter.com/NextTrainNL">@NextTrainNL</a> app for <a href="https://twitter.com/Pebble">@Pebble</a> Forget <a href="https://twitter.com/search?q=%23mobilefirst&amp;src=hash">#mobilefirst</a> get into <a href="https://twitter.com/search?q=%23smartwatchfirst&amp;src=hash">#smartwatchfirst</a> <a href="https://twitter.com/search?q=%23fourbuttoninteraction&amp;src=hash">#fourbuttoninteraction</a></p>&mdash; Rein Groot (@reingroot_nl) <a href="https://twitter.com/reingroot_nl/statuses/461376907012235264">April 30, 2014</a></blockquote>
+						
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+					
+					</div>
+				</div>
+
+				<div class="grid-50 hide-on-mobile" style="">
+
+					<div class="text" style="display: inline-block;">
+
+						<blockquote class="twitter-tweet" lang="nl" width="100%"><p>Mini party: first review for &#39;Next Train NL&#39; <a href="http://t.co/tE0cdqW8O5">pic.twitter.com/tE0cdqW8O5</a></p>&mdash; NextTrain for Pebble (@NextTrainNL) <a href="https://twitter.com/NextTrainNL/statuses/421792662845661185">January 10, 2014</a></blockquote>
+
+
+
+					</div>
+
+				</div>
+				
+				<br />
+				
+			</div>
+	
+<!-- Twitter widget -->
+	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+	
+
+			<div class="grid-container">
+
+
+				<div class="grid-100 mobile-grid-100" style=" margin-top: 40px;">
+
+					<div class="text">
+
+						<h2>Next Train NL for Pebble <a name="engels"></a>
+						&nbsp;<img src="images/english.png" style="float:right;" /></h2>
+						<p>
+						'Next Train NL' shows the time remaining until departure of your train on your Pebble. It currently works for the Dutch railway network. <a href="https://vimeo.com/86176608">Watch demo video</a>
+						</p>
+						
+						<p>
+						As soon as you open the app it starts counting down to the first train home from the current nearest station. When it detects you are already home it shows the departure to your second favorite station - for example your work. You can select later departures and other near and favorite stations with a single click.
+						</p>
+						<p>
+						'Next Train NL' is available in the new Pebble appstore.
+						
+						</p>
+
+					</div>
+
+				</div>
+
+
+				<div class="grid-100 mobile-grid-100" style="text-align: center; margin: 80px 0px;">
+
+					<p>'Next Train NL' wordt gemaakt door</p>
+					<br />
+					<div style="display: inline-block;text-align: right;position: relative;top:15px;"><a href="https://twitter.com/tjeerdytsma" style="text-decoration: none; color: #000;font-size: 25px; ">Tjeerd Ytsma</a><br /><a href="https://twitter.com/tjeerdytsma" style="text-decoration: none; color: #000;font-size: 15px; ">@tjeerdytsma</a></div>
+					&nbsp;&nbsp;
+					<span style="font-size: 12px;">i.s.m.</span>
+					&nbsp;&nbsp;&nbsp;
+					<a href="http://hoogendiep.nl"><img src="images/logoHD.jpg" alt="Hoog+Diep" style="vertical-align:middle;" /></a>
+
+				</div>
+				
+				
+				<div class="grid-100 mobile-grid-100" style="text-align: center;">
+					
+ 				<a href="http://nexttrain.tjeerdytsma.nl/persbericht.html">Info voor de pers</a> |
+				<a href="https://twitter.com/NextTrainNL">@NextTrain NL op Twitter</a> |
+				<a href="https://docs.google.com/forms/d/1nFPgPkO2a5SzWlc7TS6xRGiJEXGtl4L1LPn-bEJ9-CI/viewform">Meld je aan als tester</a>
+
+				</div>
+
+				<div class="grid-100 mobile-grid-100" style="text-align: center; font-size: 10px;">
+					<br /><br />
+
+					&copy; 2014 Tjeerd IJtsma - Pebble Steel image by <a href="https://github.com/mcongrove/PebbleUI">mcongrove</a>
+				</div>
+
+			</div>
+
+
+	
+		</div>
+	</div>
+	
+	
+	<!-- SlidesJS Required: Link to jQuery -->
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<!-- End SlidesJS Required -->
+
+	<!-- SlidesJS Required: Link to jquery.slides.js -->
+	<script src="script/jquery.slides.min.js"></script>
+	<!-- End SlidesJS Required -->
+
+	<!-- SlidesJS Required: Initialize SlidesJS with a jQuery doc ready -->
+	<script>
+	$(function() {
+	  $('#slides').slidesjs({
+		width: 850,
+		height: 320,
+		navigation: {
+          effect: "slide"
+        },
+        pagination: {
+          effect: "slide"
+        },
+		play: {
+			interval: 5000,
+			auto: true,
+			effect: "slide"
+		},
+		effect: {
+		  fade: {
+			speed: 300,
+			crossfade: true
+		  }
+		}// ,
+// 		callback: {
+// 		  complete: function(number) {
+// 			if ( number == 3 ) {
+// 				$('div.head div.scherm').show();
+// 			}
+// 		  },
+// 		  start: function(number) {
+// 		  	if ( number == 3 ) {
+// 				$('div.head div.scherm').hide();
+// 			}
+// 		  }
+// 		 }
+	  });
+	});
+	</script>
+	<!-- End SlidesJS Required -->
+	
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-47297951-1', 'tjeerdytsma.nl');
+	  ga('send', 'pageview');
+
+	</script>
+	
+
+</body>
+
+</html>

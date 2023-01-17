@@ -1,0 +1,370 @@
+<html>
+<head>
+	<title>Next Train NL voor Pebble</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />	
+	<meta name="description" content="'Next Train NL' is de app om je Nederlandse treinreis te plannen op de Pebble smartwatch. Zo heb je alle informatie over je  reis direct bij de hand.">
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+	
+	<!--[if lt IE 9]>
+	  <script src="unsemantic/javascripts/html5.js"></script>
+	<![endif]-->
+	<!--[if (gt IE 8) | (IEMobile)]><!-->
+	  <link rel="stylesheet" href="unsemantic/unsemantic-grid-responsive.css" />
+	<!--<![endif]-->
+	<!--[if (lt IE 9) & (!IEMobile)]>
+	  <link rel="stylesheet" href="unsemantic/ie.css" />
+	<![endif]-->
+	
+	<style>
+	
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	
+	html {
+		-webkit-text-size-adjust: none;
+	}
+	
+	body {
+		background-color: #eee;
+		font-family: "Helvetica-Light", "Arial", 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Verdana, Tahoma, sans-serif;
+		line-height: 140%;
+		font-size: 16px;
+	}
+	
+	h1 {
+		font-weight: normal;
+		line-height: 100%;
+		margin: 20px 0;
+		font-size: 28px;
+	}
+	h2 {
+		font-weight: normal;
+		line-height: 100%;
+		margin: 10px 0;
+		font-size: 20px;
+	}
+	p {
+		font-size: 16px;
+	}
+	
+	img {
+		vertical-align: middle;
+	}
+	
+	h1.important {
+		text-align: center;
+	}
+	
+	a, a:visited {
+		color: #00468D;
+	
+	}
+	
+	h1 a {
+		text-decoration: none;
+	}
+	
+	a.button {
+		border: none;
+		border-radius: 4px;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+		padding: 15px;
+		font-family: "Helvetica-Light", "Arial";
+		font-size: 14px;
+		background-color: #004C9B;
+		color: #fff;
+		text-decoration: none;
+		
+		height: 44px;
+		line-height: 14px;
+		
+		display: inline-block;
+		
+		margin: 5px;
+		width: 183px;
+		position: relative;
+	}
+	
+	a.button.appstore:before {
+		border-radius: 4px;
+		content: '';
+		display: block;
+		position: absolute;
+		width: 183px;
+		height: 44px;
+		left: 0;
+		top: 0;
+		background-image: url('http://dev.pblweb.com/badge/52cf056321e5796173000081/orange/small');
+		background-position: 0px -3px;
+/* 		text-indent: -9999px; */
+		background-color: #FF471D;	
+	}
+	
+	a.button.disabled {
+		box-shadow: none;
+		cursor: default;
+
+	}
+	
+	a.button:active {
+		box-shadow: 0 1px 3px rgba(0,0,0,0.25) inset;
+		background-color: #0052A5;
+	}
+	
+	a.english {
+		text-indent: -9999px;
+		background-image: url('images/english.png');
+		width: 28px;
+		height: 28px;
+		overflow: hidden;
+		display: block;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		z-index: 100;
+	}
+	
+	div.page {
+		max-width: 850px;
+		overflow: hidden;
+		
+		background-color: #fff;
+		margin: 0 auto 0 auto;
+		min-height: 100vh;
+		
+		box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.10);
+		-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.10);
+		-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.10);
+		
+	}
+	
+	div.head {
+		position: relative;
+/* 		width: 850px; */
+	}
+	div.head img {
+		width: 100%;
+	
+	}
+	
+/* 
+	div.head div.scherm {
+		display: none;
+	}
+ */
+	
+	@media screen and (max-width: 850px) {
+	
+		div.head div.scherm {
+			display: none;
+		}
+	}
+	
+	div.scherm {
+		width: 58px;
+		height: 43px;
+		
+		position: absolute;
+		left: 694px;
+		top: 150px;
+		
+		background-image: url('images/aftellen-scherm.gif');
+		background-position: -57px -73px;
+		overflow: hidden;
+		
+		z-index: 100;
+	}
+	
+	
+	div.head div#slides img:not(:first-child) {
+		display: none;
+	}
+	
+	a.slidesjs-navigation {
+		display: none;
+	}
+	ul.slidesjs-pagination {
+		text-align: center;
+		position: absolute;
+		width: 100%;
+		top: 285px;
+		z-index: 100;
+	}
+	ul.slidesjs-pagination li {
+		display: inline-block;
+		text-indent: -9999px;
+		
+	}
+	ul.slidesjs-pagination li a {
+		display: block;
+		border: solid #fff 1px;
+		width: 8px;
+		height: 8px;
+		border-radius: 4px;
+		margin: 3px;
+	}
+	ul.slidesjs-pagination li a.active {
+		background-color: #fff;
+	}
+	
+	div.steel {
+		position: relative;
+		width: 492px;
+		display: inline-block;
+	}
+	
+	div.steel div.scherm {
+		left: 229px;
+		top: 212px;
+	}
+
+	div.body {
+		padding: 20px 10px 20px 10px;
+	
+	}
+	
+	div.panel {
+/* 
+		float:left;
+		width: 50%;
+		min-width: 300px;
+		max-width: 375px;
+ */
+	}
+	
+	@media screen and (min-width: 768px) {
+		div.body {
+			padding: 40px 50px 40px 50px;
+		}
+		
+		div.text {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		div.text.screen-home-steel {
+			height: 474px;
+		}
+		div.text.screen-stations {
+			height: 480px;
+		}
+		div.text.screen-menu {
+			height: 420px;
+		}
+	}
+	
+	div.body:last-child {
+		padding-bottom: 5px;
+	}
+	</style>
+	
+</head>
+
+<body>
+
+	
+	<div class="page">
+			
+		<div class="body">		
+
+			<div class="grid-container">
+
+				<div class="grid-100 mobile-grid-100">
+	
+<h2>			
+Persbericht: Next Train, de slimme reisplanner voor op je smartwatch. 
+</h2>
+<p>	
+Rotterdam 03/2/2014 
+</p>
+
+<br />
+
+<p>
+Gelijk met de introductie van de nieuwe Pebble appstore brengen Tjeerd Ytsma en ontwerpstudio Hoog+Diep 'Next Train NL' uit. Next train NL is de eerste app speciaal ontworpen om je treinreis te “plannen” op je smartwatch. Met één blik op je pols zie je hoelang je nog hebt tot de volgende trein en op welk perron je moet zijn zonder dat je steeds je telefoon erbij hoeft te pakken. ’Next Train NL' is vanaf 4 februari gratis beschikbaar in de nieuwe Pebble appstore. <br />
+</p>
+
+<br />
+<h2>Waarom een trein app op je pols?</h2>
+<p>
+Voor het plannen van een treinreis zijn er vele apps en websites beschikbaar, maar wanneer je die informatie direct nodig hebt - je staat op een feestje te kletsen of bent met bagage onderweg - is het laatste wat wil je telefoon pakken, een formulier invullen en wachten op advies. 
+</p>
+<p>
+Met een blik op de 'Next Train NL' app op je smartwatch zie je hoe lang je nog hebt tot de eerste trein vanaf het dichtstbijzijnde station naar huis. Is je dat nog iets te vroeg dan roep je met een druk op de knop de tijd tot de tweede trein op. Per vertrek toont de app alle informatie die je nodig hebt: aankomsttijd, perron, aantal overstappen en mogelijke vertraging. 
+</p>
+
+<br />
+<h2>Een slimme trein app die leert en voor je plant</h2>
+<p>
+Next Train NL leert je reispatroon en toont altijd het meest voor de hand liggende reisadvies zodat je in veel gevallen niet hoeft te plannen. Reis je bijvoorbeeld dagelijks met de trein naar je werk dan telt hij ’s ochtends af tot de eerstvolgende trein van je thuisstation naar het station bij je werk en ’s middags de reis in omgekeerde richting. Ben je niet thuis, maar bijvoorbeeld bij vrienden op bezoek, dan toont hij de reis vanaf het dichtstbijzijnde station naar je (favoriete) thuisstation. Het door de app gegenereerde advies is eenvoudig aan te passen tot iedere willekeurige reis, waarbij alternatieve vertrek- en aankomststations slim worden aangeboden uit dichtstbijzijnde stations, je persoonlijke favorieten of een ander station in Nederland.
+</p>
+
+<br />
+<h2>Ontwikkeling: tijd voor apps</h2>
+<p>
+Op dit moment is Pebble, dat twee jaar geleden geïntroduceerd werd via een zeer succesvolle Kickstarter campagne, samen met de Samsung Galaxy Gear de meest populaire smartwatch. Het horloge kan met Bluetooth-verbinding worden aangesloten op je iPhone of Android telefoon zodat je berichten kan bekijken en bijvoorbeeld je muziek bedienen. Tijdens de Consumer Electronic Show (CES) afgelopen maand, kondigde Pebble naast nieuwe modellen aan dat zijn eigen app store op 4 februari live gaat. Dit maakt het voor Pebble dragers veel makkelijker om hun horloge met nieuwe apps uit te breiden en voor ontwikkelaars om hun apps bij de juiste gebruikers te krijgen.
+</p>
+
+<p>
+Next Train NL is een van de launching apps van de Pebble appstore en maakt gebruikt van de nieuwste mogelijkheden van de Pebble Software Delvelopment Kit (SDK). Hierdoor is het bijvoorbeeld mogelijk om direct de vertrektijd van je trein te zien zonder dat je eerst zelf een app op je telefoon hoeft op te starten of een station te kiezen.
+</p>
+
+<br />
+<h2>De toekomst</h2>
+<p>
+In de nabije toekomst zullen de functionaliteiten van 'Next Train NL' worden uitgebreid met o.a. persoonlijke instellingen, een trilalarm bij verstoringen en het plannen van een overstap. Daarnaast zijn we in kaart aan het brengen welke buitenlandse openbaar vervoersystemen geschikt zijn voor Next Train. Eigenlijk staat de smartwatch nog maar in de kinderschoenen en waarschijnlijk is het zelfs nog maar een voorbode wat ons te wachten staat qua nieuwe ontwikkelingen op het gebied van draagbare technologie. Kenners verwachten dat zowel Google als Apple nog dit jaar met een smartwatch komen. Mocht dit zo zijn, dan kan je ook voor deze horloges een Next Train app verwachten.
+</p>
+
+<br />
+<h2>De makers</h2>
+<p>
+<a href="http://hoogendiep.nl">Hoog+Diep</a> is een productontwerp bureau uit Rotterdam. Hoog+Diep ontwerpt en ontwikkelt mooie interactieve producten variërend van high-end golf hulpjes en Delfts Blauw automaat van de 21e eeuw tot software voor achter je bureau, op de bank of in je hand tijdens een pop-concert. Onze kracht ligt in producten waarvan de spelregels nog niet vastliggen: vanuit nieuwe technologische en commerciële mogelijkheden gaan we op zoek naar prettige interactie voor de gebruikers om te komen tot een succesvol innovatief product. 
+</p>
+<p>
+'Next Train NL’ is bedacht en ontwikkeld door <a href="https://twitter.com/tjeerdytsma">Tjeerd Ytsma</a>. De app maakt gebruik van de nieuwste Pebble functionaliteiten die vanaf 4 februari beschikbaar komen in een firmware update naar versie 2.0. Deze eerste versie zal vanaf dat moment gratis beschikbaar komen via de nieuwe Pebble appstore. 
+</p>
+
+<br /><br />
+
+
+<p>Contact: <br />
+Tjeerd Ytsma, tjeerd@hoogendiep.nl
+</p><br />
+<p>Afbeeldingen: <br />
+<a href="http://nexttrain.tjeerdytsma.nl/NTNLpresskit.zip">http://nexttrain.tjeerdytsma.nl/NTNLpresskit.zip</a>
+</p><br />
+<p>
+Meer informatie en updates vind je op <a href="http://nexttrain.tjeerdytsma.nl">http://tjeerdytsma.netxttrain.nl</a> en via <a href="https://twitter.com/NextTrainNL">@NextTrainNL op Twitter</a>.
+</p><br />					
+
+					
+
+				</div>
+
+			</div>
+
+		
+
+
+	
+		</div>
+	</div>
+	
+	
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-47297951-1', 'tjeerdytsma.nl');
+	  ga('send', 'pageview');
+
+	</script>
+	
+
+</body>
+
+</html>
