@@ -1,1 +1,82 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tjeerd (Ytsma) IJtsma</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+
+            font-family: "Helvetica-Light", "Arial", 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Verdana, Tahoma, sans-serif;
+            line-height: 140%;
+            font-size: 16px;
+        }
+        
+        .container {
+            height: 100%;
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 0 100px;
+        }
+        
+        h1 {
+            font-weight: normal;
+            line-height: 100%;
+            margin-bottom: 0;
+            font-size: 28px;
+        }
+        h2 {
+            font-weight: normal;
+            line-height: 100%;
+            margin: 10px 0;
+            font-size: 20px;
+        }
+        p {
+            font-size: 16px;
+        }
+
+        .items {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .items > div {
+            width: 300px;
+            height: 300px;
+            margin: 10px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Tjeerd (Ytsma) IJtsma</h1>
+        <p>
+            I am an experienced, broadly educated and passionate product and interaction designer. I also have extensive experience with development and writing code. So far I have done this for the web, native app's for mobile and smartwatch and custom smart/IOT products for home, office, education, sport, industry and more. I have special interest in working with new technologies and on soft- and hardware prototypes. 
+            <a href="https://www.linkedin.com/in/ijtsma/">Read more</a>
+        </p>
+        <h2>Personal projects</h2>
+        <div class="items">
+            <div>
+                <a href="koers/"><img src="koers/images/header.jpg" alt="Koers"/></a>
+            </div>
+            <div style="justify-content: right;">
+                <a href="nexttrain/"><img src="nexttrain/images/nexttrainnl.jpg" alt="Nexttrain"/></a>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
